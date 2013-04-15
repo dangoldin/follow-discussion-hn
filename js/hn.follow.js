@@ -19,7 +19,7 @@
         var get_hn_id = function(json) {
           var found = false;
           $.each(json.items, function(idx,val) {
-            console.log(val.url + ' ' + val.item_id);
+            console.log('Retrieved url: ' + val.url + ' ' + val.item_id);
             if (val.url === settings.url) {
               console.log('Found a match!');
               save(val.url, val.item_id);
