@@ -28,6 +28,9 @@
               return false;
             }
           });
+          if (!found) {
+            console.log('Was not able to find ' + settings.url + ' in data returned by API');
+          }
           return found;
         }
 
