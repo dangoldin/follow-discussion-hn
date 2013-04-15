@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -92,6 +93,22 @@ Copyright (c) 2013 Dan Goldin</p>
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/hn.follow.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          var loc = window.location;
+          var curr_url = loc.protocol + '//' + loc.host + loc.pathname;
+
+          var hn = new $.followHN({
+            username: 'dangoldin',
+            firebase_url: 'https://follow-on-hn.firebaseio.com/urls',
+            callback: function(thread_url) {
+              $('.result').html('Follow discussion on <a href="' + thread_url + '">Hacker News</a>');
+            }
+          });
+          hn.get_hn_url(curr_url);
+        });
+      </script>
   </body>
 </html>
