@@ -41,8 +41,6 @@ Sample page:
               $('.result').html('Follow discussion on <a href="' + thread_url + '">Hacker News</a>');
             }
           });
-          // hn.get_hn_url('http://dangoldin.com/2013/04/12/why-dont-cellphones-have-a-dialtone/');
-          // hn.get_hn_url('http://blogs.hbr.org/hbr/hbreditors/2013/03/power_of_visualizations_aha_moment.html');
           hn.get_hn_url(curr_url);
         });
       </script>
