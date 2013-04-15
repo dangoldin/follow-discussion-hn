@@ -21,7 +21,7 @@
           $.each(json.items, function(idx,val) {
             // console.log(val.url + ' ' + val.item_id)
             if (val.url === settings.url) {
-              // console.log('Found a match!');
+              console.log('Found a match!');
               save(val.url, val.item_id);
               settings.callback('https://news.ycombinator.com/item?id=' + val.item_id);
               found = true;
@@ -40,17 +40,17 @@
             contentType: "application/json",
             dataType: 'jsonp',
             success: function(json) {
-              // console.log('Success');
+              console.log('Success');
               var status = get_hn_id(json);
               if (status) {
-                // console.log('Succeeded');
+                console.log('Succeeded');
               } else {
                 settings.error_callback();
-                // console.log('Failed');
+                console.log('Failed');
               }
             },
             error: function(e) {
-              // console.log('Failed');
+              console.log('Failed');
               settings.error_callback();
             }
           });
@@ -81,10 +81,10 @@
           var urlRef = dataRef.child(clean_url);
           urlRef.once('value', function(snapshot) {
             if(snapshot.val() === null) {
-              // console.log(settings.url + ' does not exist.');
+              console.log(settings.url + ' does not exist.');
               retrieve_hn_data(settings.username, settings.url);
             } else {
-              // console.log(settings.url + ' found ' + snapshot.val().hnid);
+              console.log(settings.url + ' found ' + snapshot.val().hnid);
               settings.callback('https://news.ycombinator.com/item?id=' + snapshot.val().hnid);
             }
           });
